@@ -1,60 +1,26 @@
-.Login {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.Login .invalid-form {
+  border: 2px solid red;
 }
 .Login .btn {
   width: 300px;
   background-color: dodgerblue;
   padding: 12px 0;
   color: white;
-  outline: none;
-  border: none;
-  transition: all ease 300ms;
-}
-.Login .btn:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-.Login input {
-  border: none;
 }
 
-.Login input:focus {
-  outline: none;
+.Login .err-msg {
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
+  color: red;
+}
+
+.Login .btn-disabled {
+  opacity: 0.5;
 }
 
 .Login .Login-title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-}
-
-/* .Login form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  width: 500px;
-  box-shadow: 0 4px 8px rgba(152, 134, 168, 0.56);
-} */
-.Login form .form-field {
-  margin-bottom: 1rem;
-}
-/* #a0aebf */
-.Login form .form-field .input-field {
-  background-color: #ececec;
-  border-radius: 8px;
-  width: 300px;
-  padding: 10px 12px;
-}
-
-.Login form .form-field .input-field i {
-  padding-right: 10px;
-}
-.Login form .form-field .input-field input {
-  width: 90%;
-  background-color: transparent;
 }

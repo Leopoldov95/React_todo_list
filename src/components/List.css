@@ -1,0 +1,50 @@
+.List .input-field {
+  width: 180px;
+  padding: 8px 10px;
+}
+
+.List .input-field input {
+  width: 85%;
+}
+
+.List .input-field i {
+  padding-right: 8px;
+}
+
+.List .form-field {
+  margin-bottom: 0;
+}
+
+.List .btn-logout {
+  background-color: #fb4b1a;
+  color: white;
+  font-size: 1rem;
+  padding: 14px 1.4rem;
+  box-shadow: 0 4px 8px rgba(152, 134, 168, 0.56);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.List .btn {
+  padding: 10px 12px;
+  color: white;
+  background-color: dodgerblue;
+}
+
+.List form {
+  width: 400px;
+  margin-top: 1rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(152, 134, 168, 0.56);
+  border-radius: 0.5rem;
+  min-height: 400px;
+}
+
+.List form .form-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #ececec;
+}

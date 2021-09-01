@@ -3,10 +3,11 @@ import "./App.css";
 import Login from "./components/Login";
 import List from "./components/List";
 function App() {
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [user, setUser] = useState(localStorage.getItem("user"));
+  console.log(user);
   return (
     <div className="App">
-      {!isLoggedIn ? <Login setisLoggedIn={setisLoggedIn} /> : <List />}
+      {!user ? <Login setUser={setUser} /> : <List setUser={setUser} />}
     </div>
   );
 }
