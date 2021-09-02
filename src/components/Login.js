@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import "./Login.css";
 const url = "http://dev.rapptrlabs.com/Tests/scripts/user-login.php";
 const Login = (props) => {
@@ -65,11 +64,6 @@ const Login = (props) => {
         let form = new FormData(); //formdata object
         form.append("email", email); //append the values with key, value pair
         form.append("password", password);
-        const config = {
-          headers: {
-            "content-type": "application/x-www-form-urlencoded",
-          },
-        };
         const { data } = await axios.post(url, form, {
           headers: {
             "content-type": "application/x-www-form-urlencoded",

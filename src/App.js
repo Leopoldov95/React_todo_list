@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import List from "./components/List";
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user"));
-  console.log(user);
   return (
     <div className="App">
       {!user ? <Login setUser={setUser} /> : <List setUser={setUser} />}

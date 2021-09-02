@@ -32,13 +32,20 @@
   background-color: dodgerblue;
 }
 
+.List .btn-action {
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 0 6px;
+}
+
 .List form {
   width: 400px;
   margin-top: 1rem;
   background-color: white;
   box-shadow: 0 4px 8px rgba(152, 134, 168, 0.56);
   border-radius: 0.5rem;
-  min-height: 400px;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .List form .form-input {
@@ -47,4 +54,28 @@
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 1px solid #ececec;
+}
+
+.List form .form-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ececec;
+}
+
+.List form .form-items li .task-edit input {
+  border: 1px solid #333;
+  padding: 8px;
+}
+
+/* Mobile Display */
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .List form {
+    width: 100%;
+  }
 }
