@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# ReactJS Todo List Assessment
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eb4d1137-92e6-47a5-bfb3-c5dc5092ac94/deploy-status)](https://app.netlify.com/sites/reactjstodolisttest/deploys)
+## Table of Contents
+* [General Info](#general-info)
+* [Usage](#usage)
+* [Features](#features)
+* [Technologies](#technologies)
+* [Challenges](#challenges)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## General Info
+This is a Todo List created using ReactJS. The purpose of this project is to create a working Todo List based on a set of criterea given by Rapptr Labs.
 
-## Available Scripts
+## Challenges
+This project took me a few days to create from start to finish. I was able to quickly create the markup as well as the styling. Having used React in the past, I was familiar with it's tools and features such as React Hooks and using States. When it came to the logic such as allowing the user to edit, delete, or add new items, I was able to draw upon the knowledge I had built based on previous projects I had worked on. The most difficult part of this assessment however was making a POST request to the provided API URL. I realized that I had only ever created GET requests with external API's, I have only ever created a POST request when communicating with a server I had created. This was rather problematic as I was presented with a challenge I had never faces before. I easily spent several hours researching this issue. In the end, I realized that I had to send form/body data in a specific way (I couldn't just pass it as params). Second, and more importantly, I had to adjust the headers when making the request, something I admittedly never did before. After dealing with the POST request issue the reast of the project went smoothly. I quite enjoyed working on it and I hope that my code is up to standards.
 
-In the project directory, you can run:
 
-### `npm start`
+## Usage
+Simply click on the demo link provided or download & install the necessary depencies using:
+```bash
+npm install
+```
+Then start the application using:
+```bash
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
+* CRUD based Todo List
+* User login form
+* Mobile Responsive
 
-### `npm test`
+## Technologies
+The app was created with the following technologies
+* ReactJS
+* CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
