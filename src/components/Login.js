@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./Login.css";
-const url = "http://dev.rapptrlabs.com/Tests/scripts/user-login.php";
+const url = "https://dev.rapptrlabs.com/Tests/scripts/user-login.php";
 const Login = (props) => {
   const [formData, setFormData] = useState({
     email: "",
