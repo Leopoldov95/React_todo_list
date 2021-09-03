@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./List.css";
 const List = (props) => {
   const [items, setItems] = useState([]);
   const [display, setDisplay] = useState(items);
+  const addNewItems = useCallback(() => {
+    localStorage.setItem("todo", JSON.stringify(items));
+    setDisplay(items);
+  }, [items]);
   useEffect(() => {
     if (localStorage.getItem("todo")) {
       setItems(JSON.parse(localStorage.getItem("todo")));
     } else {
       localStorage.setItem("todo", JSON.stringify(items));
     }
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
-    localStorage.setItem("todo", JSON.stringify(items));
-    setDisplay(items);
-  }, [items]);
+    addNewItems();
+  }, [addNewItems]);
   const logout = () => {
     localStorage.removeItem("user");
     props.setUser(null);
@@ -31,8 +35,11 @@ const List = (props) => {
   };
 
   const handleSearch = async (e) => {
-    const regex = new RegExp("" + e.target.value + "", "i");
-    setDisplay(items.filter((item) => regex.test(item.task)));
+    setDisplay(
+      items.filter((item) =>
+        item.task.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
   };
   const handleChange = (e) => {
     setItems(

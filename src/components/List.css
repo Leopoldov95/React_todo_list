@@ -44,8 +44,7 @@
   background-color: white;
   box-shadow: 0 4px 8px rgba(152, 134, 168, 0.56);
   border-radius: 0.5rem;
-  height: 400px;
-  overflow-y: scroll;
+  min-height: 400px;
 }
 
 .List form .form-input {
@@ -54,6 +53,11 @@
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 1px solid #ececec;
+}
+
+.List form .form-items {
+  max-height: 332px;
+  overflow-y: auto;
 }
 
 .List form .form-items li {

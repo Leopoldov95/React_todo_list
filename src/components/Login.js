@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./Login.css";
 const url = "http://dev.rapptrlabs.com/Tests/scripts/user-login.php";
@@ -17,8 +17,8 @@ const Login = (props) => {
     password: "",
     server: "",
   });
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [loading, setLoading] = useState(false);
+  const validationCheck = useCallback(() => {
     // email validation
     if (formData.email !== "") {
       if (
@@ -26,33 +26,42 @@ const Login = (props) => {
           formData.email
         )
       ) {
-        setFormError({ ...formError, email: false });
-        setErrorMsg({ ...errorMsg, email: "" });
+        setFormError((prev) => ({ ...prev, email: false }));
+        setErrorMsg((prev) => ({ ...prev, email: "" }));
       } else {
-        setFormError({ ...formError, email: true });
-        setErrorMsg({ ...errorMsg, email: "Must Be A Valid Email" });
+        setFormError((prev) => ({ ...prev, email: true }));
+        setErrorMsg((prev) => ({
+          ...prev,
+          email: "Must Be A Valid Email",
+        }));
       }
     }
 
     //password validation
     if (formData.password !== "") {
       if (formData.password.length < 4) {
-        setFormError({ ...formError, password: true });
-        setErrorMsg({
-          ...errorMsg,
+        setFormError((prev) => ({ ...prev, password: true }));
+        setErrorMsg((prev) => ({
+          ...prev,
           password: "Password Must Be Greater Than 4 Characters",
-        });
+        }));
       } else if (formData.password.length > 16) {
-        setFormError({ ...formError, password: true });
-        setErrorMsg({
-          ...errorMsg,
+        setFormError((prev) => ({ ...prev, password: true }));
+        setErrorMsg((prev) => ({
+          ...prev,
           password: "Password Must Be Fewer Than 16 Characters",
-        });
+        }));
       } else {
-        setFormError({ ...formError, password: false });
-        setErrorMsg({ ...errorMsg, password: "" });
+        setFormError((prev) => ({ ...prev, password: false }));
+        setErrorMsg((prev) => ({ ...prev, password: "" }));
       }
     }
+  }, [formData]);
+  useEffect(() => {
+    validationCheck();
+  }, [validationCheck]);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -60,9 +69,10 @@ const Login = (props) => {
       e.preventDefault();
       // check for errors
       if (formError.email === false && formError.password === false) {
+        setLoading(true);
         const { email, password } = formData;
-        let form = new FormData(); //formdata object
-        form.append("email", email); //append the values with key, value pair
+        let form = new FormData();
+        form.append("email", email);
         form.append("password", password);
         const { data } = await axios.post(url, form, {
           headers: {
@@ -76,8 +86,10 @@ const Login = (props) => {
           props.setUser(localStorage.getItem("user"));
         }
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
       setFormError({ ...formError, server: true });
       setErrorMsg({ ...formError, server: "Unable To Reach Server" });
     }
@@ -133,7 +145,7 @@ const Login = (props) => {
           )}
         </div>
         <button
-          disabled={formError.email || formError.password}
+          disabled={formError.email || formError.password || loading}
           className={`btn ${
             formError.email || formError.password ? "btn-disabled" : ""
           }`}
